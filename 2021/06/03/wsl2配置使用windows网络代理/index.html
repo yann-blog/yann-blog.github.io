@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, 扬帆起航">
+    <meta name="keywords" content="wsl2配置使用windows网络代理, 扬帆起航">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | 扬帆起航</title>
+    <title>wsl2配置使用windows网络代理 | 扬帆起航</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">wsl2配置使用windows网络代理</h1>
                 </div>
             </div>
         </div>
@@ -429,9 +429,21 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/wsl2/">
+                                <span class="chip bg-color">wsl2</span>
+                            </a>
+                        
+                            <a href="/tags/windows/">
+                                <span class="chip bg-color">windows</span>
+                            </a>
+                        
+                            <a href="/tags/proxy/">
+                                <span class="chip bg-color">proxy</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -443,7 +455,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-05-02
+                    2021-06-03
                 </div>
                 
 
@@ -464,19 +476,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1 id="wsl2配置使用windows网络代理"><a href="#wsl2配置使用windows网络代理" class="headerlink" title="wsl2配置使用windows网络代理"></a>wsl2配置使用windows网络代理</h1><ul>
+<li>wsl2获取win10 ip<ul>
+<li><code>cat /etc/resolv.conf|grep nameserver|awk &#39;&#123;print $2&#125;&#39;</code> =&gt; 例如：172.22.176.1</li>
+<li>注：由于windows防火墙的存在，此时可能出现<code>ping 172.22.176.1</code>失败</li>
+</ul>
+</li>
+<li>新建防火墙入站规则<ul>
+<li>打开<code>控制面板\系统和安全\Windows Defender 防火墙</code></li>
+<li>点击<code>入站规则-&gt;新建规则</code></li>
+<li>规则类型：自定义</li>
+<li>程序：所有程序</li>
+<li>协议和端口：默认即可</li>
+<li>作用域：<ul>
+<li>本地ip处选择“任何IP地址”</li>
+<li>远程ip处选择“下列IP地址”，并将wsl2的IP添加进去。（请根据自己wsl2的ip进行计算，我这里添加了172.22.176.0/20）（掩码一般是20位）</li>
+</ul>
+</li>
+<li>操作：允许连接</li>
+<li>配置文件：三个全选</li>
+<li>名称描述：请自定义</li>
+<li>注意：这一步完成后，从wsl2 ping主机的ip应该可以ping通了。</li>
+</ul>
+</li>
+<li>防火墙配置<ul>
+<li>打开<code>控制面板\系统和安全\Windows Defender 防火墙\允许的应用</code>。</li>
+<li>将与代理相关的应用程序均设置为：允许其进行专用、公用网络通信。</li>
+<li>特别注意的是：将<code>Privoxy</code>也配置为允许</li>
+</ul>
+</li>
+<li>windows端代理软件配置<ul>
+<li>启用“允许来自局域网的连接”</li>
+</ul>
+</li>
+<li>测试<ul>
+<li>在wsl2中配置http代理，如<code>export http_proxy=&quot;http://172.22.176.1:10809&quot;</code>。注意：端口号请结合自己的代理设置进行修改</li>
+<li>执行命令<code>curl cip.cc</code>查看ip地址</li>
+</ul>
+</li>
+<li>后面可以采用一些脚本方便代理的设置和取消</li>
+</ul>
 
                 
             </div>
@@ -503,7 +542,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://blog.yann.fun/2021/05/02/hello-world/">https://blog.yann.fun/2021/05/02/hello-world/</a>
+                    <a href="https://blog.yann.fun/2021/06/03/wsl2%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8windows%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/">https://blog.yann.fun/2021/06/03/wsl2%E9%85%8D%E7%BD%AE%E4%BD%BF%E7%94%A8windows%E7%BD%91%E7%BB%9C%E4%BB%A3%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -540,7 +579,19 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">No tag</span>
+                            
+                                <a href="/tags/wsl2/">
+                                    <span class="chip bg-color">wsl2</span>
+                                </a>
+                            
+                                <a href="/tags/windows/">
+                                    <span class="chip bg-color">windows</span>
+                                </a>
+                            
+                                <a href="/tags/proxy/">
+                                    <span class="chip bg-color">proxy</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -714,13 +765,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/06/03/github%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E4%B8%8E%E4%BD%BF%E7%94%A8/">
+                <a href="/2021/06/03/%E8%A7%A3%E5%86%B3ubuntu%E5%AE%89%E8%A3%85wine-QQ-wechat%E5%90%8E%E5%87%BA%E7%8E%B0%E5%AD%97%E4%BD%93%E4%B9%B1%E7%A0%81%E9%97%AE%E9%A2%98/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="github多个账号免密登录与使用">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="解决ubuntu安装wine-QQ/wechat后出现字体乱码问题">
                         
-                        <span class="card-title">github多个账号免密登录与使用</span>
+                        <span class="card-title">解决ubuntu安装wine-QQ/wechat后出现字体乱码问题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -744,8 +795,20 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/git/">
-                        <span class="chip bg-color">git</span>
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/wine/">
+                        <span class="chip bg-color">wine</span>
+                    </a>
+                    
+                    <a href="/tags/QQ/">
+                        <span class="chip bg-color">QQ</span>
+                    </a>
+                    
+                    <a href="/tags/wechat/">
+                        <span class="chip bg-color">wechat</span>
                     </a>
                     
                 </div>
@@ -756,16 +819,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                Current&nbsp;<i class="far fa-dot-circle"></i>
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/05/02/hello-world/">
+                <a href="/2021/06/03/github%E5%A4%9A%E4%B8%AA%E8%B4%A6%E5%8F%B7%E5%85%8D%E5%AF%86%E7%99%BB%E5%BD%95%E4%B8%8E%E4%BD%BF%E7%94%A8/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="github多个账号免密登录与使用">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">github多个账号免密登录与使用</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -776,7 +839,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
                             </span>
                         <span class="publish-author">
                             
@@ -786,7 +849,14 @@
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/git/">
+                        <span class="chip bg-color">git</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
